@@ -1,7 +1,7 @@
 # dobbe-xray-preprocessing
 Adaptive image preprocessing for IOPA X-rays - Technical Assignment for Dobbe AI
 
-```markdown
+
 # Adaptive Image Preprocessing Pipeline for IOPA X-rays
 
 This repository contains an image preprocessing pipeline designed to enhance IOPA (Intraoral Periapical) X-ray images. The system supports both static and adaptive preprocessing approaches for improving image quality based on brightness, contrast, sharpness, and noise metrics. It also provides support for DICOM and RVG image formats.
@@ -10,7 +10,9 @@ This repository contains an image preprocessing pipeline designed to enhance IOP
 
 ```
 
-dobbe-xray-preprocessing/                 # Utility functions
+dobbe-xray-preprocessing/  
+
+
 ├── notebooks/
 │   └── main\_code.ipynb      
 ├── Reference\_Output\_Quality.jpg  
