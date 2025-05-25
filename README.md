@@ -232,11 +232,12 @@ cd dobbe-xray-preprocessing
 
 
 ## Results
-- Visual comparison plots showing original and processed images.
-![image](https://github.com/user-attachments/assets/8ef42246-013e-4580-b75d-264f1639e6d2)
 
 - Bar plots comparing brightness, contrast, sharpness, and noise metrics.
 ![image](https://github.com/user-attachments/assets/f2f5a635-7f83-4e1e-aa3c-71601680424a)
+
+- Visual comparison plots showing original and processed images.
+![image](https://github.com/user-attachments/assets/46022658-2806-4adf-a315-41813d63996e)
 
 - Summary tables with metric values before and after preprocessing.
 ![image](https://github.com/user-attachments/assets/41ca8721-651f-4319-802e-b57501a08df7)
