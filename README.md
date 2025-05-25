@@ -80,9 +80,10 @@ for ax, file in zip(axes, dcm_files):
 
 plt.tight_layout()
 plt.show()
-![image](https://github.com/user-attachments/assets/08bbd8a8-995c-4e57-9a5c-c110dfb87dd2)
+
 
 ```
+![image](https://github.com/user-attachments/assets/08bbd8a8-995c-4e57-9a5c-c110dfb87dd2)
 3. Compute image quality metrics:
 
 ```
