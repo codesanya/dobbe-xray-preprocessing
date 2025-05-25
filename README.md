@@ -211,13 +211,26 @@ def compute_metrics(original, processed):
 ```
 
 ## Metrics Computed
-- Brightness: Average pixel intensity
 
-- Contrast (Std, Michelson): Measures variation in pixel intensities
+- **Brightness**: Average pixel intensity; higher values indicate brighter images.
 
-- Sharpness (Laplacian variance, Tenengrad, Gradient Magnitude): Measures edges and detail clarity
+- **Contrast**:
+  - **Standard Deviation (Std)**: Measures the spread of pixel intensity values.
+  - **Michelson Contrast**: Computed as (I_max - I_min) / (I_max + I_min); useful for normalized contrast evaluation.
 
-- Noise (Flat region std, Wavelet estimate, Local variance): Measures noise level in images
+- **Sharpness**:
+  - **Laplacian Variance**: Measures the presence of edges using the Laplacian operator.
+  - **Tenengrad**: Uses the gradient magnitude (via Sobel operator) to assess sharpness.
+  - **Gradient Magnitude**: Evaluates how rapidly intensity changes, contributing to perceived detail.
+
+- **Noise**:
+  - **Flat Region STD**: Standard deviation in smooth regions, indicating background noise.
+  - **Wavelet Estimate**: Uses wavelet decomposition to assess noise.
+  - **Local Variance**: Measures noise based on small patches' variability.
+
+- **Evaluation Metrics**:
+  - **PSNR (Peak Signal-to-Noise Ratio)**: Quantifies reconstruction quality compared to the original image. Higher values indicate better fidelity.
+  - **SSIM (Structural Similarity Index)**: Measures structural similarity between original and processed images. Closer to 1 indicates better quality.
 
 
 
@@ -254,11 +267,38 @@ cd dobbe-xray-preprocessing
 
 ```
 
-## Future Work
+## Machine Learning / Deep Learning Approach
 
-* Incorporate ML/DL models for adaptive enhancement
-* Add support for RVG format parsing
-* Deploy as a web app with streamlit or Gradio
+To scale and automate the preprocessing of IOPA X-ray images, a Machine Learning (ML) or Deep Learning (DL) based approach can be employed. Such a model can learn to adaptively enhance images based on their quality profile, removing the need for manually tuned pipelines.
+
+### Proposed Directions
+
+1. **Image Quality Classification-Based Pipeline**:
+   - Train a lightweight classification model (e.g., Logistic Regression, Random Forest, or CNN) to categorize images based on quality metrics like brightness, contrast, and sharpness.
+   - Based on the predicted class (e.g., "Low Brightness", "High Noise"), apply a corresponding static preprocessing method tailored to improve the image.
+
+2. **Autoencoder-Based Denoising**:
+   - Use an autoencoder or U-Net architecture to learn image-to-image mapping for enhancement or denoising.
+   - The model would take in a noisy or low-quality image and output a cleaner version, learning from a set of synthetic degraded–clean image pairs.
+
+### Proof-of-Concept Implementation (Planned / Basic Setup)
+
+- A basic **Convolutional Autoencoder** was set up using synthetic noise injection (e.g., Gaussian noise) to create degraded–clean image pairs for supervised learning.
+- The model structure includes:
+  - Encoder: 2–3 Conv + ReLU + MaxPooling layers
+  - Decoder: 2–3 ConvTranspose + ReLU layers
+- Trained on a small subset to observe qualitative improvement.
+
+> _Note: Due to time and data constraints, this is a limited proof-of-concept. Further training and testing on a larger dataset is required for robust results._
+
+### Challenges and Data Requirements
+
+- **Paired Dataset Need**: DL models for image enhancement typically require high-quality ground truth images paired with degraded versions, which are not easily available in real-world clinical scenarios.
+- **Domain Specificity**: Medical images vary in acquisition conditions. A model trained on one type of noise/artifact might not generalize well.
+- **Annotation for Classification Models**: Labeling images based on quality requires expert input or robust automated heuristics.
+- **Computational Resources**: DL models benefit from GPU acceleration and large-scale training data.
+
+
 
 ## References
 - PyDicom
