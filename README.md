@@ -64,6 +64,24 @@ data_path = '/content/drive/MyDrive/Images_Data_science_intern'
 
 ```
 # Load and display DICOM images
+import pydicom
+import matplotlib.pyplot as plt
+
+fig, axes = plt.subplots(1, len(dcm_files), figsize=(5 * len(dcm_files), 5))
+if len(dcm_files) == 1:
+    axes = [axes]
+
+for ax, file in zip(axes, dcm_files):
+    file_path = os.path.join(data_path, file)
+    dicom_data = pydicom.dcmread(file_path)
+    ax.imshow(dicom_data.pixel_array, cmap="gray")
+    ax.set_title(file, fontsize=8)
+    ax.axis("off")
+
+plt.tight_layout()
+plt.show()
+![image](https://github.com/user-attachments/assets/08bbd8a8-995c-4e57-9a5c-c110dfb87dd2)
+
 ```
 3. Compute image quality metrics:
 
