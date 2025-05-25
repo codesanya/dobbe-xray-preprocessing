@@ -323,7 +323,7 @@ This adaptive approach tailors preprocessing to each image’s unique characteri
 
 To objectively assess the quality of image enhancement techniques, two standard image similarity metrics are computed: **PSNR (Peak Signal-to-Noise Ratio)** and **SSIM (Structural Similarity Index Measure)**. These metrics compare the original and preprocessed images to quantify enhancement performance.
 
-### Function: `compute_metrics(original, processed)`
+**Function**: `compute_metrics(original, processed)`
 
 This function calculates:
 
