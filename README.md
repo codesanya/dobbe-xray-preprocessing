@@ -452,7 +452,7 @@ To scale and automate the preprocessing of IOPA X-ray images, a Machine Learning
 - **Annotation for Classification Models**: Labeling images based on quality requires expert input or robust automated heuristics.
 - **Computational Resources**: DL models benefit from GPU acceleration and large-scale training data.
 
-Here's a concise instruction you can put in your `README.md` under a **"Quick Start"** or **"How to Run"** section:
+
 
 ---
 
@@ -464,8 +464,6 @@ Just open the `.ipynb` file!
 * Change the `dataset_folder_path` variable to your local dataset directory(repository contains dataset).
 * (Optional) can be run directly on google colab.
 ---
-
-Let me know if you'd like a full `README.md` template with this included.
 
 
 ## References
